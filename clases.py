@@ -33,14 +33,14 @@ class ServidorCorreo (object):
         self.mensaje_para_enviar.append(nuevo_mensaje)
     
     def recibir_mensaje(self):
-        if self.mensaje_para_enviar[0].remitente.carpetas.len() == 0:
+        if self.mensaje_para_enviar[0].destinatario.carpetas.len() == 0:
             carpeta_nueva = Carpeta()
-            self.mensaje_para_enviar[0].remitente.carpetas.append(carpeta_nueva)
+            self.mensaje_para_enviar[0].destinatario.carpetas.append(carpeta_nueva)
             carpeta_nueva.set_nombre_sin_leer("Mensajes sin leer")
             carpeta_nueva.agregar_mensaje(self.mensaje_para_enviar[0])
             self.mensaje_para_enviar.pop(0)
         else:
-            for carp in self.mensaje_para_enviar[0].remitente.carpetas:
+            for carp in self.mensaje_para_enviar[0].destinatario.carpetas:
                 if carp.nombre == "Mensajes sin leer":
                     carp.agregar_mensaje(self.mensaje_para_enviar[0])
                     self.mensaje_para_enviar.pop(0)

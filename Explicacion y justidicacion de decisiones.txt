@@ -1,0 +1,35 @@
+El código cuenta con cuatro clases que permitirán el funcionamiento del programa de mensajeria por correo.
+
+
+El primero llamado "ServidorCorreo" cuenta con cuatro propiedades. 
+-usuarios_registrados: es una lista donde se guardaran todos los usuarios del programa
+-estado: es un booleano que permite saber si hay un usuario activo para usar el programa.
+-usuario_activo: una lista que tendrá como finalidad tener en ella el usuario que se logea
+-mensaje_para_enviar: En ella se guardara el mensaje que se mandara luego. Es un intermediario para luego 
+enviarse a la carpeta del usuario destino.
+
+Los métodos que tiene esta clase son:
+-log_in: Al intentar que el servidor sea una base que permita la conexión entre usuarios para mandar 
+mensajes y el que permite la creación y distribución de dichos correos,
+se opto por un sistema donde tenga que existir un usuario activo para definir quien es el que crea en ese 
+momento los mensajes. 
+Usando un "for", se realiza una búsqueda en la lista "usuarios_registrados" buscando la coincidencia de nombres. 
+Luego, se pide la contraseña del usuario y con eso movemos el usuario a "usuario_activo" y 
+cambiamos el "estado", que por defecto es False, a True 
+
+-crear_usuario: Este método crea los usuarios valiéndose de los métodos de la clase "Usuario" permitiendo darle 
+un nombre y contraseña y por ultimo lo agrega a la lista "usuarios_registrados" del servidor.
+
+-enviar_mensaje: Al igual que el método anterior, crea una instancia de "Mensaje" y se vale de sus métodos para 
+completar los datos del mensaje a enviar. Luego, lo agrega a la lista "mensaje_para_enviar" del servidor.
+
+-recibir_mensaje: Este método utiliza un "if" para verificar, antes de enviar, que exista una carpeta en el destinatario.
+ Si no existe, creara una instancia de "Carpeta" con el nombre de "Mensajes sin leer", la mandara a la lista de 
+"carpetas" del usuario y le agregara el mensaje. Si la carpeta existe, solo le agrega el mensaje.
+
+Las siguientes tres clases comparten muchas mas similitudes entre ellas que la anterior. Tanto "Usuario", "Mensaje" y "Carpeta" 
+utilizan todas métodos setter y getter para modificar o retornar sus propiedades.
+A su vez, mensaje tiene un propiedad booleana para indicar su estado de "leído". Por lo que cuenta también con su método para modificarlo.
+ También, en la clase "Carpeta" contamos con métodos extras. Utiliza "agregar_mensaje" y "quitar_mensaje", de los cuales el servidor 
+utiliza para el envió de mensajes. Por ultimo, cuenta con un método llamado "lista_mensajes" que con un "for" permite la impresionde 
+los mensajes mostrando el remitente y el asunto. 
