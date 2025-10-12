@@ -17,10 +17,10 @@ class Mensaje(object):
         destinatario = input("Ingrese el destinatario: ")
         for us in servidor.usuarios_registrados:
             #Aqui busca la coincidencia entre el nombre ingresado y el atributo nombre de cada usuario registrado en el servidor
-            if destinatario == us.nombre:
+            if destinatario == us.get_nombre():
                 self.destinatario = us
-        else:
-            raise ValueError ("No se encontro un usuario con ese nombre")
+                return 
+        raise ValueError ("No se encontro un usuario con ese nombre")
         #Si la coindicion se cumple, setteara el usuario, sino mostrara el error
         
     def get_destinatario(self):
