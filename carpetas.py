@@ -33,7 +33,7 @@ class Carpeta(object):
     def quitar_mensaje(self, mensaje):
         #Quita mensaje verificando primero que sea una instancia de Mensaje()
         if isinstance(mensaje,Mensaje):
-            indice = mensaje.index() #Adquiere el indice donde se encuentra el mensaje
+            indice = self.mensajes.index(mensaje) #Adquiere el indice donde se encuentra el mensaje
             self.mensajes.pop(indice) #Luego lo quita
     
     def lista_mensajes(self):
