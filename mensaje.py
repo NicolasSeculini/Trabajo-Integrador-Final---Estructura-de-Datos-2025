@@ -1,3 +1,5 @@
+from carpetas import Carpeta
+
 class Mensaje(object):
     def __init__(self):
         self.remitente = None
@@ -97,3 +99,4 @@ class Mensaje(object):
     def get_fecha(self):
         # Retorna la fecha del mensaje
         return self.fecha
+
