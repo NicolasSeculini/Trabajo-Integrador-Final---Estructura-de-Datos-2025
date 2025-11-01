@@ -278,3 +278,4 @@ class Usuario(object):
     def contar_urgentes(self):
         # Cuenta cuantos mensajes urgentes hay en la cola
         return len(self.cola_urgentes)
+        
